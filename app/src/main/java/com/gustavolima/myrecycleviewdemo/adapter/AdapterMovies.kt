@@ -1,4 +1,6 @@
 package com.gustavolima.myrecycleviewdemo.adapter
 
-class AdapterMovies {
+import android.content.Context
+
+class AdapterMovies(private val context: Context, private val movieList:MutableList<>) {
 }
