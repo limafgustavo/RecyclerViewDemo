@@ -13,16 +13,14 @@ class AdapterMovies(private val context: Context, private val movieList: Mutable
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val itemList = MovieItemBinding.inflate(LayoutInflater.from(context), parent,false)
+        val itemList = MovieItemBinding.inflate(LayoutInflater.from(context), parent, false)
         return MovieViewHolder(itemList)
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount() = movieList.size
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.textMoviewTitle.text = movieList[position].title
     }
 
     inner class MovieViewHolder(binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
