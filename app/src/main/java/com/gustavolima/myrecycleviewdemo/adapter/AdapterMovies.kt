@@ -1,9 +1,11 @@
 package com.gustavolima.myrecycleviewdemo.adapter
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.gustavolima.myrecycleviewdemo.databinding.MovieItemBinding
 import com.gustavolima.myrecycleviewdemo.model.Movie
 
 class AdapterMovies(private val context: Context, private val movieList: MutableList<Movie>) :
@@ -11,7 +13,8 @@ class AdapterMovies(private val context: Context, private val movieList: Mutable
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        TODO("Not yet implemented")
+        val itemList = MovieItemBinding.inflate(LayoutInflater.from(context), parent,false)
+        return MovieViewHolder(itemList)
     }
 
     override fun getItemCount(): Int {
@@ -22,5 +25,7 @@ class AdapterMovies(private val context: Context, private val movieList: Mutable
         TODO("Not yet implemented")
     }
 
-    inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {}
+    inner class MovieViewHolder(binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        val textMoviewTitle = binding.textMovieTitle
+    }
 }
